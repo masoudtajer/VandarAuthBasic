@@ -43,6 +43,8 @@ then for generate users into table run command below:
 $ php artisan vandar-auth-basic:install
 ```
 
+NOTE: this package use 'Admin' model and 'admins' table by default.
+
 ## Customization
 
 If you want customize this package you can publish config file with command below:
