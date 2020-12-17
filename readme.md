@@ -15,7 +15,22 @@ Via Composer
 $ composer require masoud5070/vandarauthbasic
 ```
 
+If you do not run Laravel 5.5 (or higher), then add the service provider and alias in config/app.php:
+
+provider :
+
+``` bash
+"Masoud5070\VandarAuthBasic\VandarAuthBasicServiceProvider"
+```
+
+alias:
+
+``` bash
+"VandarAuthBasic" => "Masoud5070\VandarAuthBasic\Facades\VandarAuthBasic"
+```
+
 ## Usage
+
 After install this package first rum migration for create table : 
 
 ``` bash
@@ -26,6 +41,30 @@ then for generate users into table run command below:
 
 ``` bash
 $ php artisan vandar-auth-basic:install
+```
+
+## Customization
+
+If you want customize this package you can publish config file with command below:
+
+``` bash
+$ php artisan vandar:publish
+```
+
+and select 'vandarauthbasic.config' tag. 
+
+after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
+
+NOTE: when change 'model_name' with your model class, table name will automatically change with '$table' of model.
+
+then run command below:
+
+``` bash
+$ php artisan migrate
+```
+
+``` bash
+$ php artisan vandar-auth-basic:instal
 ```
 
 ## Change log
