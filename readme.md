@@ -34,7 +34,7 @@ alias:
 After install this package first rum migration for create table : 
 
 ``` bash
-$ php artisan:migrate
+$ php artisan migrate
 ```
 
 then for generate users into table run command below:
@@ -44,6 +44,12 @@ $ php artisan vandar-auth-basic:install
 ```
 
 NOTE: this package use 'Admin' model and 'admins' table by default.
+
+after run command you can set 'auth.basic:web' middleware on routes that you want:
+
+``` bash
+$ Route::get('your-uri', 'YourController')->middleware('auth.basic:web');
+```
 
 ## Customization
 
