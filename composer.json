@@ -1,0 +1,41 @@
+{
+    "name": "masoud5070/vandarauthbasic",
+    "description": "implement auth basic for vandar services",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Masoud Haji Ali Tajer",
+            "email": "masoudtajer121@gmail.com",
+            "homepage": "https://github.com/masoud5070"
+        }
+    ],
+    "homepage": "https://github.com/masoud5070/vandarauthbasic",
+    "keywords": ["Laravel", "VandarAuthBasic"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~5|~6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Masoud5070\\VandarAuthBasic\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Masoud5070\\VandarAuthBasic\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Masoud5070\\VandarAuthBasic\\VandarAuthBasicServiceProvider"
+            ],
+            "aliases": {
+                "VandarAuthBasic": "Masoud5070\\VandarAuthBasic\\Facades\\VandarAuthBasic"
+            }
+        }
+    }
+}
