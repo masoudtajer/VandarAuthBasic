@@ -3,6 +3,7 @@
 namespace Masoud5070\VandarAuthBasic\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 use Masoud5070\VandarAuthBasic\Models\Admin;
 
 class GenerateUsersIntoDatabaseCommand extends Command
@@ -49,8 +50,11 @@ class GenerateUsersIntoDatabaseCommand extends Command
      */
     public function handle()
     {
-        foreach (config('vandarauthbasic.database_records') as $item){
-            $this->model->create($item);
+        foreach (config('vandarauthbasic.database_records') as $email => $password) {
+            $this->model->create([
+                'email' => $email,
+                'password' => Hash::make($password),
+            ]);
         }
 
         $this->info('Vandar auth basic installed successfully!');
