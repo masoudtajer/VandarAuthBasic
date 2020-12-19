@@ -31,16 +31,28 @@ alias:
 
 ## Usage
 
-After install this package first rum migration for create table : 
+first publish config file and select 'vandarauthbasic.config' tag with command below:
+
+``` bash
+$ php artisan vandar:publish
+```
+
+after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
+
+NOTE: when change 'model_name' with your model class, table name will automatically change with '$table' of model. 
+
+NOTE: you should set 'email' and 'password' into env file.
+
+then rum migration for create table : 
 
 ``` bash
 $ php artisan migrate
 ```
 
-then for generate users into table run command below:
+for generate users into table run command below:
 
 ``` bash
-$ php artisan vandar-auth-basic:install
+$ php artisan vandar:admins-consideration
 ```
 
 NOTE: this package use 'Admin' model and 'admins' table by default.
@@ -69,33 +81,7 @@ then add provider to 'auth.php' config file:
 after run command and set provider you can set 'auth.basic:web' middleware on routes that you want:
 
 ``` bash
-$ Route::get('your-uri', 'YourController')->middleware('auth.basic:web');
-```
-
-## Customization
-
-If you want customize this package you can publish config file with command below:
-
-``` bash
-$ php artisan vandar:publish
-```
-
-and select 'vandarauthbasic.config' tag. 
-
-after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
-
-NOTE: when change 'model_name' with your model class, table name will automatically change with '$table' of model.
-
-NOTE: after custimize your config you should set provicer correctly.
-
-then run command below:
-
-``` bash
-$ php artisan migrate
-```
-
-``` bash
-$ php artisan vandar-auth-basic:instal
+$ Route::get('your-uri', 'YourController@method')->middleware('auth.basic:web');
 ```
 
 ## Change log
