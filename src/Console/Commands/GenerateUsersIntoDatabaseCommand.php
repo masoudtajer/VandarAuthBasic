@@ -12,7 +12,7 @@ class GenerateUsersIntoDatabaseCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'vandar-auth-basic:install';
+    protected $signature = 'vandar:admins-consideration';
 
     /**
      * The console command description.
@@ -49,7 +49,6 @@ class GenerateUsersIntoDatabaseCommand extends Command
      */
     public function handle()
     {
-        $this->model->truncate();
         foreach (config('vandarauthbasic.database_records') as $item){
             $this->model->create($item);
         }
