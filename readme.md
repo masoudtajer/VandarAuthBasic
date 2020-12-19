@@ -5,61 +5,59 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This package implement auth basic for vandar services
+This package implements the laravel's default `auth.basic` middleware for vandar services:
 
 ## Installation
 
 Via Composer
 
-``` bash
+```bash
 $ composer require masoud5070/vandarauthbasic
 ```
 
-If you do not run Laravel 5.5 (or higher), then add the service provider and alias in config/app.php:
+If you do not run Laravel 5.5 (or higher), then add the service provider and alias in `config/app.php`:
 
-provider :
+On the `config\app.php` add this to the `providers` array value:
 
-``` bash
+```php
 "Masoud5070\VandarAuthBasic\VandarAuthBasicServiceProvider"
 ```
 
-alias:
+and this one on the `alias` array value:  
 
-``` bash
+```php
 "VandarAuthBasic" => "Masoud5070\VandarAuthBasic\Facades\VandarAuthBasic"
 ```
 
 ## Usage
 
-first publish config file and select 'vandarauthbasic.config' tag with command below:
+First publish config file and select `vandarauthbasic.config` tag with the command below:
 
-``` bash
+```bash
 $ php artisan vendor:publish
 ```
 
-after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
+After config file was published you can change `model_name` with your model and set your data that create into database with `database_records`.
 
-**NOTE:** when change 'model_name' with your model class, table name will automatically change with '$table' of model. 
+**NOTE:** When change 'model_name' with your model class, table name will automatically change with '$table' of model. 
 
-**NOTE:** you should set 'ADMINS_TABLE_EMAIL' and 'ADMINS_TABLE_PASSWORD' into env file.
+**NOTE:** You should set `ADMINS_TABLE_EMAIL` and `ADMINS_TABLE_PASSWORD` on the `.env` file, then run the migration for creating the table:   
 
-then rum migration for create table : 
-
-``` bash
+```bash
 $ php artisan migrate
 ```
 
-for generate users into table run command below:
+To generate the admin user into the `admins` table run the command below:  
 
-``` bash
+```bash
 $ php artisan vandar:admins-consideration
 ```
 
-**NOTE:** this package use 'Admin' model and 'admins' table by default.
+**NOTE:** This package uses `Admin` model and `admins` table by default.  
 
-then add provider to 'auth.php' config file:
+Then add provider to 'auth.php' config file:
 
-``` bash
+```php
 'guards' => [
          'web' => [
              'driver' => 'session',
@@ -78,9 +76,9 @@ then add provider to 'auth.php' config file:
 ```
 
 
-after run command and set provider you can set 'auth.basic:web' middleware on routes that you want:
+After running this command and setting the provider, you can set the `auth.basic:web` middleware on the routes you want:  
 
-``` bash
+```php
 $ Route::get('your-uri', 'YourController@method')->middleware('auth.basic:web');
 ```
 
