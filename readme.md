@@ -39,9 +39,9 @@ $ php artisan vendor:publish
 
 after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
 
-NOTE: when change 'model_name' with your model class, table name will automatically change with '$table' of model. 
+**NOTE:** when change 'model_name' with your model class, table name will automatically change with '$table' of model. 
 
-NOTE: you should set 'email' and 'password' into env file.
+**NOTE:** you should set 'ADMINS_TABLE_EMAIL' and 'ADMINS_TABLE_PASSWORD' into env file.
 
 then rum migration for create table : 
 
@@ -55,7 +55,7 @@ for generate users into table run command below:
 $ php artisan vandar:admins-consideration
 ```
 
-NOTE: this package use 'Admin' model and 'admins' table by default.
+**NOTE:** this package use 'Admin' model and 'admins' table by default.
 
 then add provider to 'auth.php' config file:
 
