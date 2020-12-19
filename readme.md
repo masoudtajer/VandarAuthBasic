@@ -34,7 +34,7 @@ alias:
 first publish config file and select 'vandarauthbasic.config' tag with command below:
 
 ``` bash
-$ php artisan vandar:publish
+$ php artisan vendor:publish
 ```
 
 after config file was published you can change 'model_name' with your model and set your data that create into database with 'database_records'.
