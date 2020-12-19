@@ -39,7 +39,7 @@ $ php artisan vendor:publish
 
 After config file was published you can change `model_name` with your model and set your data that create into database with `database_records`.
 
-**NOTE:** When change 'model_name' with your model class, table name will automatically change with '$table' of model. 
+**NOTE:** When change `model_name` with your model class, table name will automatically change with `$table` of model. 
 
 **NOTE:** You should set `ADMINS_TABLE_EMAIL` and `ADMINS_TABLE_PASSWORD` on the `.env` file, then run the migration for creating the table:   
 
