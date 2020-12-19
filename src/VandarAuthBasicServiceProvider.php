@@ -62,7 +62,7 @@ class VandarAuthBasicServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/vandarauthbasic.php' => config_path('vandarauthbasic.php'),
-        ], 'vandarauthbasic.config');
+        ], 'vandarauthbasic-config');
 
         // Publishing the views.
         /*$this->publishes([
