@@ -55,20 +55,20 @@ $ php artisan vandar:admins-consideration
 
 **NOTE:** This package uses `Admin` model and `admins` table by default.  
 
-Then add provider to 'auth.php' config file:
+Then add guard and provider to 'auth.php' config file:
 
 ```php
 'guards' => [
-         'web' => [
+         'admin' => [
              'driver' => 'session',
-             'provider' => 'users',
+             'provider' => 'admins',
          ],
     
          ...
     ],   
 
 'providers' => [
-         'users' => [
+         'admins' => [
              'driver' => 'eloquent',
              'model' => \Masoud5070\VandarAuthBasic\Models\Admin::class,
          ],
